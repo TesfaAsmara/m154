@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "m154"
+  site-url: "https://TesfaAsmara.github.io/m154"
+  description: "Computational Statistics (MATH154 PO-01)"
+  repo-branch: main
+  repo-url: "https://github.com/TesfaAsmara/m154"
