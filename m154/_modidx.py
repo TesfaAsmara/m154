@@ -2,7 +2,7 @@
 
 d = { 'settings': { 'branch': 'main',
                 'doc_baseurl': '/m154',
-                'doc_host': 'https://TesfaAsmara.github.io',
-                'git_url': 'https://github.com/TesfaAsmara/m154',
+                'doc_host': 'https://tesfaasmara.github.io',
+                'git_url': 'https://github.com/tesfaasmara/m154',
                 'lib_path': 'm154'},
-  'syms': {'m154.core': {'m154.core.foo': ('core.html#foo', 'm154/core.py')}}}
+  'syms': {}}
