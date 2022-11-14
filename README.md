@@ -16,14 +16,14 @@ m154
 
 # Configuring a collaborative workflow
 
-We’re going to be using homebrew to install Miniconda, which is a
+We’re going to be using Homebrew to install Miniconda, which is a
 version of a python package manager called Anaconda. If you’re working
-with the M1 Chip, then you have to download from source.
-https://docs.conda.io/en/latest/miniconda.html
+with the M1 Chip, then you have to download from source
+[here](https://docs.conda.io/en/latest/miniconda.html).
 
-Otherwise, you’ll need to install homebrew (https://brew.sh/). Then,
-you’ll need to install Miniconda
-(https://formulae.brew.sh/cask/miniconda).
+Otherwise, you’ll need to install [Homebrew](https://brew.sh/). Then,
+you’ll need to install
+[Miniconda](https://formulae.brew.sh/cask/miniconda).
 
 Then you’ll need to create an environment for this project. I named my
 environment `m154env`.
@@ -43,9 +43,11 @@ You’ll want to activate the conda environment and install
 [jupyter](https://anaconda.org/conda-forge/jupyter),
 [notebook](https://anaconda.org/conda-forge/notebook),
 [rpy2](https://anaconda.org/conda-forge/rpy2), and any R-packages that
-we’ll need (For example,
-[r-randomforest](https://anaconda.org/conda-forge/r-randomforest)). The
-python, jupyter, and notebook packages will allow us to select our conda
+we’ll need
+([r-randomforest](https://anaconda.org/conda-forge/r-randomforest),
+[dplyr](https://anaconda.org/conda-forge/r-dplyr),
+[tibble](https://anaconda.org/conda-forge/r-tibble)). The python,
+jupyter, and notebook packages will allow us to select our conda
 environment as a kernel for our jupyter notebook. The rpy2 package will
 allow us to change the interpreter within a Python cell in our jupyter
 notebook to instead interpret R code by entering `%%R` at the top of a
@@ -55,9 +57,9 @@ Python cell.
 
 ## Setting your environment variables
 
-1.  create a file named `.group_project_r_env` in the nbs folder
+1.  Create a file named `.group_project_r_env` in the nbs folder
 2.  In that file, define the following variables with the paths to each
-    of the csv’s I personally like to control-click on a file in Visual
+    of the csv’s. I personally like to control-click on a file in Visual
     Studio Code, copy the entire path (represented by the `..` below),
     and then edit the last parts of the path to redirect it to what I’d
     like the path to point to, in this case that is the csv data.
@@ -70,8 +72,8 @@ Python cell.
 
 ## How to Git
 
-First, make sure you have Git installed. You can install Git through
-Homebrew.
+First, make sure that you have
+[Git](https://formulae.brew.sh/formula/git) installed.
 
 ### Getting a copy of the repository onto your computer
 
