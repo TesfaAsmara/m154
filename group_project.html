@@ -1,0 +1,2887 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Authors: Tesfa Asmara, Arsh Chhabra, Brandon Kaplan, Sam Sasaki">
+
+<title>m154 - Group Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="m154 - Group Project">
+<meta property="og:description" content="Authors: Tesfa Asmara, Arsh Chhabra, Brandon Kaplan, Sam Sasaki">
+<meta property="og:site-name" content="m154">
+<meta name="twitter:title" content="m154 - Group Project">
+<meta name="twitter:description" content="Authors: Tesfa Asmara, Arsh Chhabra, Brandon Kaplan, Sam Sasaki">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">m154</span>
+    </a>
+  </div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Group Project</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">m154</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./group_project.html" class="sidebar-item-text sidebar-link active">Group Project</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./homework3.html" class="sidebar-item-text sidebar-link">Homework 3</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab2.html" class="sidebar-item-text sidebar-link">Lecture 10 / Lab 2</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Group Project</h1>
+</div>
+
+<div>
+  <div class="description">
+    Authors: Tesfa Asmara, Arsh Chhabra, Brandon Kaplan, Sam Sasaki
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<p><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code></p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"rpy2.ipython"</span> <span class="kw">not</span> <span class="kw">in</span> sys.modules:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Loaded rpy2"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Reloaded rpy2"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># import rpy2's package module</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rpy2.robjects.packages <span class="im">as</span> rpackages</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># import R's "base" package</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> rpackages.importr(<span class="st">'base'</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># import R's "utils" package</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>utils <span class="op">=</span> rpackages.importr(<span class="st">'utils'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># select a mirror for R packages</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>utils.chooseCRANmirror(ind<span class="op">=</span><span class="dv">1</span>) <span class="co"># select the first mirror in the list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reloaded rpy2</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>&lt;rpy2.rinterface_lib.sexp.NULLType object at 0x106809b40&gt; [RTYPES.NILSXP]</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rpy2.robjects.vectors <span class="im">import</span> StrVector</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># R package names</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>packnames <span class="op">=</span> (<span class="st">'ggplot2'</span>, <span class="st">'pcaPP'</span>, <span class="st">'ks'</span>,<span class="st">'stray'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectively install what needs to be install.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># We are fancy, just because we can.</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>names_to_install <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> packnames <span class="cf">if</span> <span class="kw">not</span> rpackages.isinstalled(x)]</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(names_to_install) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    utils.install_packages(StrVector(names_to_install))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>utils.install_packages(<span class="st">'installr'</span>,<span class="st">'ggplot2'</span>, <span class="st">'pcaPP'</span>, <span class="st">'ks'</span>,<span class="st">'stray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R[write to console]: Warning in (function (pkgs, lib, repos = getOption("repos"), contriburl = contrib.url(repos,  :
+R[write to console]: 
+ 
+R[write to console]:  'lib = "ggplot2"' is not writable
+
+R[write to console]: Error in (function (pkgs, lib, repos = getOption("repos"), contriburl = contrib.url(repos,  : 
+  unable to install packages
+</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>RRuntimeError: Error in (function (pkgs, lib, repos = getOption("repos"), contriburl = contrib.url(repos,  : 
+  unable to install packages</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>installr <span class="op">=</span> rpackages.importr(<span class="st">"installr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>library(installr)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>install.packages.<span class="bu">zip</span>(<span class="st">"https://cran.r-project.org/src/contrib/stray_0.1.1.tar.gz"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R[write to console]: trying URL 'https://cran.r-project.org/src/contrib/stray_0.1.1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 376607 bytes (367 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 367 KB
+
+
+ERROR: dependencies ‘ggplot2’, ‘pcaPP’, ‘ks’ are not available for package ‘stray’
+* removing ‘/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/stray’</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>No documentation for ‘installr’ in specified packages and libraries:
+you could try ‘??installr’</code></pre>
+</div>
+</div>
+<p><code>=======</code></p>
+<p><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; refs/remotes/origin/main</code></p>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>stray <span class="op">=</span> rpackages.importr(<span class="st">"stray"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R[write to console]: also installing the dependencies ‘nlme’, ‘farver’, ‘labeling’, ‘munsell’, ‘R6’, ‘RColorBrewer’, ‘viridisLite’, ‘lifecycle’, ‘rlang’, ‘lattice’, ‘Rcpp’, ‘misc3d’, ‘gtable’, ‘isoband’, ‘MASS’, ‘mgcv’, ‘scales’, ‘vctrs’, ‘mvtnorm’, ‘kernlab’, ‘KernSmooth’, ‘Matrix’, ‘mclust’, ‘multicool’, ‘plot3D’, ‘pracma’, ‘FNN’, ‘ggplot2’, ‘colorspace’, ‘pcaPP’, ‘ks’
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/nlme_3.1-160.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 845714 bytes (825 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 825 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/farver_2.1.1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 1274363 bytes (1.2 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 1.2 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/labeling_0.4.2.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 10156 bytes
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 10156 bytes
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/munsell_0.5.0.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 182653 bytes (178 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 178 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/R6_2.5.1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 63422 bytes (61 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 61 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/RColorBrewer_1.1-3.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 11638 bytes (11 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 11 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/viridisLite_0.4.1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 1267090 bytes (1.2 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 1.2 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/lifecycle_1.0.3.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 106854 bytes (104 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 104 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/rlang_1.0.6.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 742508 bytes (725 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 725 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/lattice_0.20-45.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 399470 bytes (390 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 390 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/Rcpp_1.0.9.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 2957812 bytes (2.8 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 2.8 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/misc3d_0.9-1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 66802 bytes (65 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 65 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/gtable_0.3.1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 92733 bytes (90 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 90 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/isoband_0.2.6.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 1672253 bytes (1.6 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 1.6 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/MASS_7.3-58.1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 514882 bytes (502 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 502 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/mgcv_1.8-41.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 1072476 bytes (1.0 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 1.0 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/scales_1.2.1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 270609 bytes (264 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 264 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/vctrs_0.5.0.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 959393 bytes (936 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 936 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/mvtnorm_1.1-3.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 166421 bytes (162 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 162 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/kernlab_0.9-31.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 1215549 bytes (1.2 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 1.2 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/KernSmooth_2.23-20.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 25946 bytes (25 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 25 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/Matrix_1.5-3.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 2163568 bytes (2.1 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 2.1 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/mclust_6.0.0.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 2744043 bytes (2.6 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 2.6 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/multicool_0.1-12.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 14628 bytes (14 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 14 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/plot3D_1.4.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 2616461 bytes (2.5 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 2.5 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/pracma_2.4.2.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 399611 bytes (390 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 390 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/FNN_1.1.3.1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 79465 bytes (77 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 77 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/ggplot2_3.4.0.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 3148426 bytes (3.0 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 3.0 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/colorspace_2.0-3.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 2199185 bytes (2.1 MB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 2.1 MB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/pcaPP_2.0-3.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 198922 bytes (194 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 194 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/ks_1.13.5.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 1032859 bytes (1008 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 1008 KB
+
+
+R[write to console]: trying URL 'https://cloud.r-project.org/src/contrib/stray_0.1.1.tar.gz'
+
+R[write to console]: Content type 'application/x-gzip'
+R[write to console]:  length 376607 bytes (367 KB)
+
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: =
+R[write to console]: 
+
+R[write to console]: downloaded 367 KB
+
+
+* installing *source* package ‘farver’ ...
+** package ‘farver’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c ColorSpace.cpp -o ColorSpace.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c Comparison.cpp -o Comparison.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c Conversion.cpp -o Conversion.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c encode.cpp -o encode.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c farver.cpp -o farver.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c init.cpp -o init.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -Wl,-dead_strip_dylibs -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -o farver.dylib ColorSpace.o Comparison.o Conversion.o encode.o farver.o init.o -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lR -Wl,-framework -Wl,CoreFoundation</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ld: warning: -pie being ignored. It is only used when linking a main executable
+installing to /opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/00LOCK-farver/00new/farver/libs
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (farver)
+* installing *source* package ‘labeling’ ...
+** package ‘labeling’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (labeling)
+* installing *source* package ‘R6’ ...
+** package ‘R6’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (R6)
+* installing *source* package ‘RColorBrewer’ ...
+** package ‘RColorBrewer’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (RColorBrewer)
+* installing *source* package ‘viridisLite’ ...
+** package ‘viridisLite’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (viridisLite)
+* installing *source* package ‘rlang’ ...
+** package ‘rlang’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -I./rlang/  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c capture.c -o capture.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -I./rlang/  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c internal.c -o internal.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -I./rlang/  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c rlang-rcc.cpp -o rlang-rcc.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -I./rlang/  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c rlang.c -o rlang.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -I./rlang/  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c version.c -o version.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -Wl,-dead_strip_dylibs -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -o rlang.dylib capture.o internal.o rlang-rcc.o rlang.o version.o -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lR -Wl,-framework -Wl,CoreFoundation</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ld: warning: -pie being ignored. It is only used when linking a main executable
+installing to /opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/00LOCK-rlang/00new/rlang/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (rlang)
+* installing *source* package ‘lattice’ ...
+** package ‘lattice’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c init.c -o init.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c threeDplot.c -o threeDplot.o
+arm64-apple-darwin20.0.0-clang -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -Wl,-dead_strip_dylibs -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -o lattice.dylib init.o threeDplot.o -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lR -Wl,-framework -Wl,CoreFoundation</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ld: warning: -pie being ignored. It is only used when linking a main executable
+installing to /opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/00LOCK-lattice/00new/lattice/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** demo
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (lattice)
+* installing *source* package ‘Rcpp’ ...
+** package ‘Rcpp’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-clang++ -std=gnu++14 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -I../inst/include/  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c api.cpp -o api.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++14 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -I../inst/include/  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c attributes.cpp -o attributes.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++14 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -I../inst/include/  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c barrier.cpp -o barrier.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++14 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -I../inst/include/  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c date.cpp -o date.o</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>make: *** [/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/etc/Makeconf:177: date.o] Interrupt: 2
+ERROR: compilation failed for package ‘Rcpp’
+* removing ‘/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/Rcpp’
+* installing *source* package ‘misc3d’ ...
+** package ‘misc3d’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+** demo
+** inst
+** byte-compile and prepare package for lazy loading</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>error: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/otool-classic: can't open file: /opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/tcltk/libs//tcltk.so (No such file or directory)
+Warning in system2("/usr/bin/otool", c("-L", shQuote(DSO)), stdout = TRUE) :
+  running command ''/usr/bin/otool' -L '/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/tcltk/libs//tcltk.so'' had status 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>error: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/otool-classic: can't open file: /opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/tcltk/libs//tcltk.so (No such file or directory)
+Warning in system2("/usr/bin/otool", c("-L", shQuote(DSO)), stdout = TRUE) :
+  running command ''/usr/bin/otool' -L '/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/tcltk/libs//tcltk.so'' had status 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>** testing if installed package can be loaded from final location</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>error: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/otool-classic: can't open file: /opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/tcltk/libs//tcltk.so (No such file or directory)
+Warning in system2("/usr/bin/otool", c("-L", shQuote(DSO)), stdout = TRUE) :
+  running command ''/usr/bin/otool' -L '/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/tcltk/libs//tcltk.so'' had status 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>** testing if installed package keeps a record of temporary installation path
+* DONE (misc3d)
+* installing *source* package ‘gtable’ ...
+** package ‘gtable’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (gtable)
+* installing *source* package ‘isoband’ ...
+** package ‘isoband’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -Itestthat  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c clip-lines.cpp -o clip-lines.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -Itestthat  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c init.cpp -o init.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -Itestthat  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c isoband.cpp -o isoband.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -Itestthat  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c polygon.cpp -o polygon.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -Itestthat  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c separate-polygons.cpp -o separate-polygons.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -Itestthat  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c test-clip-lines.cpp -o test-clip-lines.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -Itestthat  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c test-runner.cpp -o test-runner.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG -Itestthat  -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c test-separate-polygons.cpp -o test-separate-polygons.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -Wl,-dead_strip_dylibs -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -o isoband.dylib clip-lines.o init.o isoband.o polygon.o separate-polygons.o test-clip-lines.o test-runner.o test-separate-polygons.o -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lR -Wl,-framework -Wl,CoreFoundation</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ld: warning: -pie being ignored. It is only used when linking a main executable
+installing to /opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/00LOCK-isoband/00new/isoband/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (isoband)
+* installing *source* package ‘MASS’ ...
+** package ‘MASS’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c MASS.c -o MASS.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c lqs.c -o lqs.o
+arm64-apple-darwin20.0.0-clang -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -Wl,-dead_strip_dylibs -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -o MASS.dylib MASS.o lqs.o -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lR -Wl,-framework -Wl,CoreFoundation</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ld: warning: -pie being ignored. It is only used when linking a main executable
+installing to /opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/00LOCK-MASS/00new/MASS/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+
+* removing ‘/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/MASS’
+* installing *source* package ‘mvtnorm’ ...
+** package ‘mvtnorm’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c C_FORTRAN_interface.c -o C_FORTRAN_interface.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c miwa.c -o miwa.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c mvt.f -o mvt.o</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c mvtnorm-init.c -o mvtnorm-init.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c tvpack.f -o tvpack.o
+arm64-apple-darwin20.0.0-clang -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -Wl,-dead_strip_dylibs -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -o mvtnorm.dylib C_FORTRAN_interface.o miwa.o mvt.o mvtnorm-init.o tvpack.o -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/gcc/arm64-apple-darwin20.0.0/11.0.1 -lgfortran -lemutls_w -lm -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lR -Wl,-framework -Wl,CoreFoundation</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+ld: warning: directory not found for option '-L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/gcc/arm64-apple-darwin20.0.0/11.0.1'
+ld: library not found for -lemutls_w
+clang-14: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/share/make/shlib.mk:10: mvtnorm.dylib] Error 1
+ERROR: compilation failed for package ‘mvtnorm’
+* removing ‘/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/mvtnorm’
+* installing *source* package ‘kernlab’ ...
+** package ‘kernlab’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c brweight.cpp -o brweight.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c ctable.cpp -o ctable.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c cweight.cpp -o cweight.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dbreakpt.c -o dbreakpt.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dcauchy.c -o dcauchy.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dgpnrm.c -o dgpnrm.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dgpstep.c -o dgpstep.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dprecond.c -o dprecond.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dprsrch.c -o dprsrch.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dspcg.c -o dspcg.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dtron.c -o dtron.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dtrpcg.c -o dtrpcg.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dtrqsol.c -o dtrqsol.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c esa.cpp -o esa.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c expdecayweight.cpp -o expdecayweight.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c inductionsort.cpp -o inductionsort.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c init.c -o init.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c kspectrumweight.cpp -o kspectrumweight.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c lcp.cpp -o lcp.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c misc.c -o misc.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c msufsort.cpp -o msufsort.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c solvebqp.c -o solvebqp.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c stringk.c -o stringk.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c stringkernel.cpp -o stringkernel.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c svm.cpp -o svm.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c wkasailcp.cpp -o wkasailcp.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c wmsufsort.cpp -o wmsufsort.o
+arm64-apple-darwin20.0.0-clang++ -std=gnu++11 -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -Wl,-dead_strip_dylibs -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -o kernlab.dylib brweight.o ctable.o cweight.o dbreakpt.o dcauchy.o dgpnrm.o dgpstep.o dprecond.o dprsrch.o dspcg.o dtron.o dtrpcg.o dtrqsol.o esa.o expdecayweight.o inductionsort.o init.o kspectrumweight.o lcp.o misc.o msufsort.o solvebqp.o stringk.o stringkernel.o svm.o wkasailcp.o wmsufsort.o -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lRlapack -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lRblas -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/gcc/arm64-apple-darwin20.0.0/11.0.1 -lgfortran -lemutls_w -lm -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lR -Wl,-framework -Wl,CoreFoundation</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ld: warning: directory not found for option '-L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/gcc/arm64-apple-darwin20.0.0/11.0.1'
+ld: library not found for -lemutls_w
+clang-14: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/share/make/shlib.mk:10: kernlab.dylib] Error 1
+ERROR: compilation failed for package ‘kernlab’
+* removing ‘/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/kernlab’
+* installing *source* package ‘KernSmooth’ ...
+** package ‘KernSmooth’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c blkest.f -o blkest.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c cp.f -o cp.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dgedi.f -o dgedi.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dgefa.f -o dgefa.o</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dgesl.f -o dgesl.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c init.c -o init.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c linbin.f -o linbin.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c linbin2D.f -o linbin2D.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c locpoly.f -o locpoly.o</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c rlbin.f -o rlbin.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c sdiag.f -o sdiag.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c sstdiag.f -o sstdiag.o
+arm64-apple-darwin20.0.0-clang -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -Wl,-dead_strip_dylibs -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib -o KernSmooth.dylib blkest.o cp.o dgedi.o dgefa.o dgesl.o init.o linbin.o linbin2D.o locpoly.o rlbin.o sdiag.o sstdiag.o -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lRblas -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/gcc/arm64-apple-darwin20.0.0/11.0.1 -lgfortran -lemutls_w -lm -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/gcc/arm64-apple-darwin20.0.0/11.0.1 -lgfortran -lemutls_w -lm -L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/lib -lR -Wl,-framework -Wl,CoreFoundation</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ld: warning: directory not found for option '-L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/gcc/arm64-apple-darwin20.0.0/11.0.1'
+ld: warning: directory not found for option '-L/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/gcc/arm64-apple-darwin20.0.0/11.0.1'
+ld: library not found for -lemutls_w
+clang-14: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/share/make/shlib.mk:10: KernSmooth.dylib] Error 1
+ERROR: compilation failed for package ‘KernSmooth’
+* removing ‘/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/library/KernSmooth’
+* installing *source* package ‘mclust’ ...
+** package ‘mclust’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’
+arm64-apple-darwin20.0.0-gfortran: warning: could not understand version ‘13.00.00’</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c dmvnorm.f -o dmvnorm.o
+arm64-apple-darwin20.0.0-clang -I"/opt/homebrew/Caskroom/miniforge/base/envs/m154env/lib/R/include" -DNDEBUG   -D_FORTIFY_SOURCE=2 -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -mmacosx-version-min=11.0 -I/opt/homebrew/Caskroom/miniforge/base/envs/m154env/include   -fPIC  -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c init.c -o init.o
+arm64-apple-darwin20.0.0-gfortran  -fPIC  -march=armv8.3-a -ftree-vectorize -fPIC -fno-stack-protector -O2 -pipe -isystem /opt/homebrew/Caskroom/miniforge/base/envs/m154env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/r-base-split_1660164802939/work=/usr/local/src/conda/r-base-4.1.3 -fdebug-prefix-map=/opt/homebrew/Caskroom/miniforge/base/envs/m154env=/usr/local/src/conda-prefix  -c mclust.f -o mclust.o</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>library(randomForest)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>library(tidyverse)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>library(stray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R[write to console]: randomForest 4.7-1.1
+
+R[write to console]: Type rfNews() to see new features/changes/bug fixes.
+
+R[write to console]: Error in library(stray) : there is no package called ‘stray’
+
+R[write to console]: In addition: 
+R[write to console]: Warning message:
+
+R[write to console]: packages ‘s’, ‘t’, ‘r’, ‘a’, ‘y’ are not available for this version of R
+
+Versions of these packages for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages 
+</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error in library(stray) : there is no package called ‘stray’</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>RInterpreterError: Failed to parse and evaluate line 'library(randomForest)\nlibrary(tibble)\nlibrary(stray)\n\nreadRenviron("./.group_project_r_env")\nGiveMeSomeCreditTrainingCSV &lt;- Sys.getenv("GiveMeSomeCreditTrainingCSV")\nGiveMeSomeCreditTestCSV &lt;- Sys.getenv("GiveMeSomeCreditTestCSV")\nGiveMeSomeCreditSampleEntryCSV &lt;- Sys.getenv("GiveMeSomeCreditSampleEntryCSV")\nset.seed(47)\n\ntraining_data &lt;- read.csv(file = GiveMeSomeCreditTrainingCSV)\n'.
+R error message: 'Error in library(stray) : there is no package called ‘stray’'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>readRenviron(<span class="st">"./.group_project_r_env"</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>GiveMeSomeCreditTrainingCSV <span class="op">&lt;-</span> Sys.getenv(<span class="st">"GiveMeSomeCreditTrainingCSV"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>GiveMeSomeCreditTestCSV <span class="op">&lt;-</span> Sys.getenv(<span class="st">"GiveMeSomeCreditTestCSV"</span>)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>GiveMeSomeCreditSampleEntryCSV <span class="op">&lt;-</span> Sys.getenv(<span class="st">"GiveMeSomeCreditSampleEntryCSV"</span>)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>.seed(<span class="dv">47</span>)</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>training_data <span class="op">&lt;-</span> read.csv(<span class="bu">file</span> <span class="op">=</span> GiveMeSomeCreditTrainingCSV)</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="co">#clean var names</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>rename(DefaultLikely <span class="op">=</span> SeriousDlqin2yrs)</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>rename(RUUL <span class="op">=</span> RevolvingUtilizationOfUnsecuredLines)</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>rename(Age <span class="op">=</span> age)</span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>rename(NumPastDue1 <span class="op">=</span> NumberOfTime30<span class="fl">.59</span><span class="er">DaysPastDueNotWorse</span>)</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>rename(Income <span class="op">=</span> MonthlyIncome)</span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>rename(NumCredit <span class="op">=</span> NumberOfOpenCreditLinesAndLoans)</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>rename(NumLate <span class="op">=</span> NumberOfTimes90DaysLate)</span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>rename(NumRealEst <span class="op">=</span> NumberRealEstateLoansOrLines)</span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>rename(NumPastDue2 <span class="op">=</span> NumberOfTime60<span class="fl">.89</span><span class="er">DaysPastDueNotWorse</span>)</span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>rename(NumDep <span class="op">=</span> NumberOfDependents)</span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(training_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>UsageError: Cell magic `%%R` not found.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#turn predictor variable from numeric to factor</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>training_data$DefaultLikely <span class="op">&lt;-</span> ifelse(test<span class="op">=</span>training_data$DefaultLikely <span class="op">==</span> <span class="dv">0</span>, yes<span class="op">=</span><span class="st">"No"</span>, no<span class="op">=</span><span class="st">"Yes"</span>) <span class="co">#turns 0 and 1 into no and yes</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>training_data$DefaultLikely <span class="op">&lt;-</span> <span class="im">as</span>.factor(training_data$DefaultLikely)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>UsageError: Cell magic `%%R` not found.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#imputing N/A values</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Here we do a random forest based imputation method to impute values into the missing cols</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>missing1 <span class="op">&lt;-</span> which(<span class="kw">is</span>.na(training_data[,<span class="dv">7</span>])) <span class="co">#find where na is in monthlyincome col</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>data<span class="fl">.1</span> <span class="op">&lt;-</span> training_data[<span class="op">-</span>missing1,c(<span class="dv">3</span>:<span class="dv">11</span>)] <span class="co">#data set without id num, output var , also not num dependents which also has na</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># names(data.1) &lt;- paste('x', 1:9, sep="")</span></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>fit1 <span class="op">&lt;-</span> randomForest(Income <span class="op">~</span> ., data<span class="op">=</span>data<span class="fl">.1</span>)</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a><span class="co"># training_data[missing1,1] &lt;- predict(fit1, training_data[missing1, c(1,3:4)])</span></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a><span class="co"># missing2 &lt;- which(is.na(iris.na[,2])) #find where na is in first variable</span></span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a><span class="co"># data.2 &lt;- iris.na[-missing2,1:4] #data set without na, also not variable 2</span></span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a><span class="co"># fit2 &lt;- randomForest(Sepal.Width~., data=data.2)</span></span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a><span class="co"># iris.na[missing2,2] &lt;- predict(fit2, iris.na[missing2, 1:4])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
