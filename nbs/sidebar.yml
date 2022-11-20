@@ -1,0 +1,8 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - group_project.ipynb
+      - group_project_visualization.ipynb
+      - homework3.ipynb
+      - lab2.ipynb
